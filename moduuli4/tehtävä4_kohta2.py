@@ -1,13 +1,15 @@
-def tuumat_senttimetreiksi(tuumat):
-    return tuumat * 2.54
+#Kirjoita ohjelma, joka muuntaa tuumia senttimetreiksi niin kauan kunnes käyttäjä
+#antaa negatiivisen tuumamäärän. Sen jälkeen ohjelma lopettaa toimintansa.
+#1 tuuma = 2,54 cm
 
-while True:
-    try:
-        tuumat = float(input("Syötä tuumat (negatiivinen luku lopettaa ohjelman): "))
-        if tuumat < 0:
-            print("Ohjelma lopetetaan.")
-            break
-        senttimetrit = tuumat_senttimetreiksi(tuumat)
-        print(f"{tuumat} tuumaa on {senttimetrit:.2f} senttimetriä.")
-    except ValueError:
-        print("Virheellinen syöte. Syötä luku.")
+tuumat = float(input("Syötä tuumat (negatiivinen luku lopettaa): "))
+senttimetrit = 0
+
+while tuumat >= 0:
+    senttimetrit = tuumat * 2.54
+    print(f"{tuumat} tuumaa on {senttimetrit} senttimetriä.")
+
+    tuumat = float(input("Syötä tuumat (negatiivinen luku lopettaa): "))
+
+print("Ohjelma lopetettu.")
+
