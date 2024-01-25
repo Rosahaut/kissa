@@ -1,18 +1,10 @@
-def on_karkausvuosi(vuosi):
-    if (vuosi % 4 == 0 and vuosi % 100 != 0) or (vuosi % 400 == 0):
-        return True
-    else:
-        return False
+#Kirjoita ohjelma, joka kysyy vuosiluvun ja ilmoittaa, onko annettu vuosi karkausvuosi.
+#Vuosi on karkausvuosi, jos se on jaollinen neljällä.
+#Sadalla jaolliset vuodet ovat karkausvuosia vain jos ne ovat jaollisia myös neljälläsadalla.
 
-def main():
-    try:
-        vuosi = int(input("Syötä vuosiluku: "))
-        if on_karkausvuosi(vuosi):
-            print(f"{vuosi} on karkausvuosi.")
-        else:
-            print(f"{vuosi} ei ole karkausvuosi.")
-    except ValueError:
-        print("Virheellinen syöte. Syötä vuosiluku kokonaislukuna.")
+vuosi = int(input("Syötä vuosiluku: "))
 
-if __name__ == "__main__":
-    main()
+if (vuosi % 4 == 0 and vuosi % 100 != 0) or (vuosi % 400 == 0):
+    print(f"{vuosi} on karkausvuosi.")
+else:
+    print(f"{vuosi} ei ole karkausvuosi.")
