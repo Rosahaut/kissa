@@ -1,10 +1,9 @@
-def kolmella_jaolliset():
-    luku = 1
+#Kirjoita while-toistorakennetta käyttävä ohjelma,
+#joka tulostaa kolmella jaolliset luvut väliltä 1..1000.
 
-    while luku <= 1000:
-        if luku % 3 == 0:
-            print(luku)
-        luku += 1
+luku = 1
 
-if __name__ == "__main__":
-    kolmella_jaolliset()
+while luku <= 1000:
+    if luku % 3 == 0:
+        print(luku)
+    luku += 1
