@@ -11,6 +11,6 @@ def get_even_numbers(numbers):
     return even_numbers
 
 
-numbers = [1, 6, 2, 3, 9, 4, 5, 3, 6, 7, 8, 1, 3, 5]
+numbers = [9, 4, 5, 3, 6, 7, 8, 1, 3, 5]
 even_numbers = get_even_numbers(numbers)
 print(f"original numbers: {numbers}, even numbers: {even_numbers}")
