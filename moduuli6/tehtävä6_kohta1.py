@@ -4,24 +4,15 @@
 
 import random
 
-
-def roll_dice():
-
+def heita_noppaa():
     return random.randint(1, 6)
 
+luku = 0
+maara = 0
 
-def main():
-    print("Dice rolling begins:")
+while luku != 6:
+    luku = heita_noppaa()
+    maara += 1
+    print(f"Heitto {maara}: {luku}")
 
-    while True:
-        roll_result = roll_dice()
-        print(f"Roll: {roll_result}")
-
-        if roll_result == 6:
-            print("Six achieved! Dice rolling stops.")
-            break
-
-
-if __name__ == "__main__":
-    main()
-
+print(f"Kuutosella heittojen määrä: {maara}")
