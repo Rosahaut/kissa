@@ -4,26 +4,17 @@
 #Muuntamista jatketaan siihen saakka, kunnes käyttäjä syöttää negatiivisen gallonamäärän.
 #  *Yksi gallona on 3,785 litraa.
 
-def gallons_to_liters(gallons):
-    liters = gallons * 3.785
-    return liters
+def gallonat_litroiksi(gallona_maara):
+    litra_maara = gallona_maara * 3.785
+    return litra_maara
 
+while True:
+    gallona_maara = float(input("Syötä bensiinin määrä U.S gallonoina (negatiivinen lopettaa): "))
 
-def main_program():
-    while True:
-        try:
-            gallons = float(input("Enter amount of gas in U.S gallons (negative to quit): "))
-        except ValueError:
-            print("Invalid input. Please enter a decimal number.")
-            continue
+    if gallona_maara < 0:
+        print("Ohjelma päättyy.")
+        break
 
-        if gallons < 0:
-            print("Program terminated.")
-            break
+    litra_maara = gallonat_litroiksi(gallona_maara)
+    print(f"{gallona_maara} gallonaa on {litra_maara} litraa.")
 
-        liters = gallons_to_liters(gallons)
-        print(f"{gallons} gallons is equal to {liters:.2f} liters.")
-
-
-if __name__ == "__main__":
-    main_program()
