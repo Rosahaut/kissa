@@ -2,15 +2,12 @@
 #Ohjelma palauttaa listassa olevien lukujen summan. Kirjoita testausta varten pääohjelma,
 #jossa luot listan, kutsut funktiota ja tulostat sen palauttaman summan.
 
-def calculate_sum(number_list):
-    return sum(number_list)
+def laske_summa(lista):
+    return sum(lista)
 
+lukulista = [1, 2, 3, 4, 5]
 
-def main():
-    test_list = [1, 2, 3, 4, 5]
+summa = laske_summa(lukulista)
 
-    total_sum = calculate_sum(test_list)
-    print(f"total sum on list: {total_sum}")
+print(f"Lukulistan {lukulista} summa on: {summa}")
 
-if __name__ == "__main__":
-    main()
