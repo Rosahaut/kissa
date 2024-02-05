@@ -5,26 +5,19 @@
 
 import random
 
+def heita_noppaa(total_sides):
+    return random.randint(1, total_sides)
 
-def roll_die(sides):
-    return random.randint(1, sides)
+total_sides = int(input("Enter total number of die sides: "))
+max_value = int(input("Enter maximum roll value: "))
 
+luku = 0
+maara = 0
 
-def main():
-    sides = int(input("Enter total number of die sides: "))
-    max_value = int(input("Enter maximum roll value: "))
+while luku != max_value:
+    luku = heita_noppaa(total_sides)
+    maara += 1
+    print(f"Heitto {maara}: {luku}")
 
-    print(f"Dice rolling begins (number of sides: {sides}, max roll value: {max_value}):")
-
-    while True:
-        roll_result = roll_die(sides)
-        print(f"Roll: {roll_result}")
-
-        if roll_result == max_value:
-            print(f"Max roll value {max_value} achieved! Dice rolling stops.")
-            break
-
-
-if __name__ == "__main__":
-    main()
+print(f"Maksimiarvolla {max_value} heittojen määrä: {maara}")
 
