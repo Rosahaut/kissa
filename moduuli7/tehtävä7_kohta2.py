@@ -4,7 +4,7 @@
 #kertaa. Lopuksi ohjelma luettelee syötetyt nimet yksi kerrallaan allekkain mielivaltaisessa
 #järjestyksessä. Käytä joukkotietorakennetta nimien tallentamiseen.
 
-names = []
+names = set()
 
 while True:
     name = input("Give name: ")
@@ -14,9 +14,10 @@ while True:
         print("Same name")
     else:
         print("New name")
-        names.append(name)
+        names.add(name)
 
-print(names)
+for name in names:
+    print(name)
 
 
 
