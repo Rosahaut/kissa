@@ -20,6 +20,6 @@ while True:
     elif arvaus > oikein:
         print("Liian suuri arvaus.")
     else:
-        print(f"Oikein! Arvasit luvun {oikein} {arvauskerrat} arvauskerralla.")
+        print(f"Oikein! Arvasit luvun {oikein} {arvauskerrat} arvaus kerralla.")
         break
 
