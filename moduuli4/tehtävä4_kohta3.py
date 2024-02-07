@@ -5,22 +5,21 @@
 luvut = []
 
 while True:
-    syote = input("Syötä luku (tyhjä merkkijono lopettaa): ")
+    annettu = input("Anna luku (tyhjä merkkijono lopettaa): ")
 
-    if not syote:
+    if not annettu:
         break
 
     try:
-        luku = float(syote)
+        luku = float(annettu)
         luvut.append(luku)
-    except ValueError:
-        print("Virheellinen syöte. Syötä luku tai tyhjä merkkijono lopettaaksesi.")
+    except:
+        print("Virhe! Syötä luku tai tyhjä merkkijono lopettaaksesi.")
 
 if luvut:
     pienin = min(luvut)
     suurin = max(luvut)
     print(f"Pienin luku: {pienin}")
     print(f"Suurin luku: {suurin}")
-else:
-    print("Et syöttänyt yhtään lukua.")
+
 
