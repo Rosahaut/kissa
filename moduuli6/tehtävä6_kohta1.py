@@ -4,15 +4,15 @@
 
 import random
 
-def heita_noppaa():
+def roll_dice():
     return random.randint(1, 6)
 
-luku = 0
-maara = 0
+numeral = 0
+count = 0
 
-while luku != 6:
-    luku = heita_noppaa()
-    maara += 1
-    print(f"Heitto {maara}: {luku}")
+while numeral != 6:
+    numeral = roll_dice()
+    count += 1
+    print(f"Heitto {count}: {numeral}")
 
-print(f"Kuutosella heittojen määrä: {maara}")
+print(f"Count of throws after the number six: {count}")
