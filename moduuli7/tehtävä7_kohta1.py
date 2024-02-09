@@ -5,7 +5,7 @@
 
 season = ("winter", "winter", "spring", "spring", "spring", "summer",
           "summer", "summer", "autumn", "autumn", "autumn", "winter")
-order = int(input("Give season order (1-12): "))
+order = int(input("Give season (1-12): "))
 month = season[order -1]
 
-print(f"{order}. month is {month}.")
+print(f"{order}. Month is {month}.")
