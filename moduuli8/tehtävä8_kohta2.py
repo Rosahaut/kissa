@@ -15,15 +15,15 @@ connection = mysql.connector.connect(
 )
 
 def count_airports_by_type(iso_code):
-    sql = f"SELECT type FROM airport WHERE iso_country= '{iso_code} ORDER by type'"
+    sql = f"SELECT type, COUNT(type) FROM airport WHERE iso_country= '{iso_code}' GROUP BY type"
     cursor = connection.cursor()
     cursor.execute(sql)
-    result = cursor.fetchone()
-    if cursor.rowcount == 1:
-        return result
+    result = cursor.fetchall()
+    print(result)
 
+user_input = input("give iso_code: ")
+airport = count_airports_by_type(user_input)
 
-#Kesken, en ole saanut ratkaistua
 
 
 
