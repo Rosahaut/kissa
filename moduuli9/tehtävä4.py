@@ -55,9 +55,10 @@ print(Fore.LIGHTYELLOW_EX + "\n RESULTS: \n")
 print(Fore.YELLOW + " License plate | Top speed (km/h) | Current speed (km/h) | Distance traveled (km) ")
 print(Fore.LIGHTYELLOW_EX + "-" * 81)
 for car in race_cars:
-    print(Fore.YELLOW + f"{car.license_plate:^14} | {car.top_speed:^16} | {car.current_speed:^20} | {car.distance_traveled:^22}")
+    print(Fore.YELLOW + f"{car.license_plate:^14} | {car.top_speed:^16} | "
+                        f"{car.current_speed:^20} | {car.distance_traveled:^22}")
     print(Fore.LIGHTYELLOW_EX + "-" * 81)
 
-print(Fore.BLUE + f"\n WINNER: {winner.license_plate} | {winner.top_speed} km/h | {winner.current_speed} km/h"
-                  f" | {winner.distance_traveled} km")
+print(Fore.BLUE + f"\n WINNER: {winner.license_plate} | {winner.top_speed} km/h | "
+                  f"{winner.current_speed} km/h | {winner.distance_traveled} km")
 
