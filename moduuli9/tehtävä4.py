@@ -51,7 +51,7 @@ while not winner:
     else:
         continue
 
-    print("RESULTS:")
+    print("\nRESULTS:\n")
     print("License plate | Top speed (km/h) | Distance traveled (km)")
     print("-" * 57)
     for car in race_cars:
