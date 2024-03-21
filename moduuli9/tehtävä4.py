@@ -9,7 +9,7 @@
 # Lopuksi tulostetaan kunkin auton kaikki ominaisuudet selkeäksi taulukoksi muotoiltuna.
 
 import random
-
+from colorama import Fore, Style
 
 class Car:
     def __init__(self, license_plate, top_speed):
@@ -51,12 +51,13 @@ while not winner:
     else:
         continue
 
-    print("\nRESULTS:\n")
-    print("License plate | Top speed (km/h) | Distance traveled (km)")
-    print("-" * 57)
-    for car in race_cars:
-        print(f"{car.license_plate:^13} | {car.top_speed:^16} | {car.distance_traveled:^22}")
-        print("-" * 57)
+print(Fore.LIGHTYELLOW_EX + "\n RESULTS: \n")
+print(Fore.YELLOW + " License plate | Top speed (km/h) | Current speed (km/h) | Distance traveled (km) ")
+print(Fore.LIGHTYELLOW_EX + "-" * 81)
+for car in race_cars:
+    print(Fore.YELLOW + f"{car.license_plate:^14} | {car.top_speed:^16} | {car.current_speed:^20} | {car.distance_traveled:^22}")
+    print(Fore.LIGHTYELLOW_EX + "-" * 81)
 
-    print(f"\nWINNER CAR: {winner.license_plate} | {winner.top_speed} km/h | {winner.distance_traveled} km")
+print(Fore.BLUE + f"\n WINNER: {winner.license_plate} | {winner.top_speed} km/h | {winner.current_speed} km/h"
+                  f" | {winner.distance_traveled} km")
 
