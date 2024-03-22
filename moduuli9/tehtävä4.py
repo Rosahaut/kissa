@@ -11,12 +11,14 @@
 import random
 from colorama import Fore, Style
 
+
 class Car:
     def __init__(self, license_plate, top_speed):
         self.license_plate = license_plate
         self.top_speed = top_speed
         self.current_speed = 0
         self.distance_traveled = 0
+        self.current_speed_at_end = None
 
     def accelerate(self, speed_change):
         new_speed = self.current_speed + speed_change
@@ -47,18 +49,21 @@ while not winner:
     for car in race_cars:
         if car.distance_traveled >= 10000:
             winner = car
+            winner.current_speed_end = winner.current_speed
             break
     else:
         continue
 
 print(Fore.LIGHTYELLOW_EX + "\n RESULTS: \n")
 print(Fore.YELLOW + " License plate | Top speed (km/h) | Current speed (km/h) | Distance traveled (km) ")
-print(Fore.LIGHTYELLOW_EX + "-" * 81)
+print(Fore.LIGHTYELLOW_EX + "-" * 83)
 for car in race_cars:
-    print(Fore.YELLOW + f"{car.license_plate:^14} | {car.top_speed:^16} | "
-                        f"{car.current_speed:^20} | {car.distance_traveled:^22}")
-    print(Fore.LIGHTYELLOW_EX + "-" * 81)
+    top_speed_info = f"{car.top_speed:^16}"
+    current_speed_info = f"{car.current_speed:^20}"
+    print(Fore.YELLOW + f"{car.license_plate:^14} | {top_speed_info} | "
+                        f"{current_speed_info} | {car.distance_traveled:^22}")
+    print(Fore.LIGHTYELLOW_EX + "-" * 83)
 
 print(Fore.BLUE + f"\n WINNER: {winner.license_plate} | {winner.top_speed} km/h | "
-                  f"{winner.current_speed} km/h | {winner.distance_traveled} km")
+                  f"{winner.current_speed_end} km/h | {winner.distance_traveled} km")
 
