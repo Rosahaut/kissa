@@ -4,37 +4,39 @@
 # http://127.0.0.1:3000/kenttä/EFHK. Vastauksen on oltava muodossa:
 # {"ICAO":"EFHK", "Name":"Helsinki Vantaa Airport", "Municipality":"Helsinki"}.
 
-from flask import Flask, jsonify
+from flask import Flask
 import mysql.connector
+
+def connect_to_database():
+    connection = mysql.connector.connect(
+        host='127.0.0.1',
+        port=3306,
+        database='flight_game',
+        user='root',
+        password='root',
+        autocommit=True
+    )
+    if connection.is_connected():
+        print(f'Connected to the database: {connection.database}\n')
+        cursor = connection.cursor()
+        return connection, cursor
 
 app = Flask(__name__)
 
-connection = mysql.connector.connect(
-    host="localhost",
-    port=3306,
-    database="flight_game",
-    user="root",
-    password="root",
-    autocommit=True
-)
-
-def find_airport_by_code(ICAO):
-    sql = f"SELECT ident, name, municipality FROM airport WHERE ident = '{ICAO}'"
-    cursor = connection.cursor()
+@app.route('/airfield/<icao>')
+def get_airfield_info(icao):
+    connection, cursor = connect_to_database()
+    sql = f"SELECT airport.name, airport.municipality FROM airport WHERE airport.ident = '{icao}'"
     cursor.execute(sql)
-    result = cursor.fetchone()
-    cursor.close()
-    return result
-
-@app.route('/airfield/<ICAO>', methods=['GET'])
-def get_airport_info(ICAO):
-    airport = find_airport_by_code(ICAO)
-    if airport:
-        ICAO_code, name, municipality = airport
-        return jsonify({"ICAO": ICAO_code, "Name": name, "Municipality": municipality})
+    query_result = cursor.fetchall()
+    if not query_result:
+        result = {'ICAO': icao, 'message': 'not found'}
+        return result
     else:
-        return jsonify({"error": "Airport not found"}), 404
+        result = {'ICAO': icao, 'Name': query_result[0][0], 'Municipality': query_result[0][1]}
+        return result
 
 if __name__ == '__main__':
-    app.run(debug=True, port=3000)
+    app.run(use_reloader=True, host='127.0.0.1', port=3000)
+
 
